@@ -11,7 +11,7 @@ int main(void){
   double f_D= V/lambda;
   int i;
   for (i = 0; i < WLT; i++) {
-
+//できた
   }
 
 }
