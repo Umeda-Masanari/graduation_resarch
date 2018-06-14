@@ -8,7 +8,7 @@
 #define Freq 2.5e9 //2.5[GHz]帯の周波数
 #define V (4.5e3 / 3600)
 int main(void){
-  double *I, *Q, *theta, g, k;
+  double I, Q, theta, g, k;
   double t;
   //double N_factor =  //N_factor=正規化係数 は自分で見つける
 
@@ -16,14 +16,14 @@ int main(void){
   double f_D= V/lambda; //最大ドップラー周波数
   int i;
   for (i = 0; i < WLT; i++) {
-    k= f_D*cos(2.0*M_PI*(double)i/(double)WLT);
-    g=2.0 * M_PI * k*(double)dt*(double)t;
+    k= f_D*cos(2.0*M_PI*i/WLT);
+    g=2.0 * M_PI * k*dt*t;
 
 double t = theta[i];
 
 printf("%d\t%f\n",i,t );
-  *I+= cos(g+theta[i]);
-  *Q+= sin(g+theta[i]);
+  I+= cos(g+theta[i]);
+  Q+= sin(g+theta[i]);
 }
 
 return 0;
