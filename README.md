@@ -1,3 +1,3 @@
 # graduation_resarch
-消さないで
+卒研
 now on test
