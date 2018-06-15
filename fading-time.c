@@ -25,7 +25,7 @@ void setupAntennaDir(double *theta) {
 
 
 int main(void){
-  double I = 0, Q = 0, theta[WLT], omega, k;
+  double I = 0, Q = 0, theta[WLT], f, f_s;
   double N_coefficient = sqrt(1.0 / (double)WLT);  //%%%%%%%%N_coefficient=正規化係数 は自分で見つける
 
 printf("%f\n",N_coefficient);
@@ -36,13 +36,14 @@ printf("%f\n",N_coefficient);
   setupAntennaDir(theta);
 
   for (int i = 0; i < WLT; i++) {
-    k = f_D * cos(2.0 * M_PI * (double)i / (double)WLT);
-    omega = 2.0 * M_PI * k * (double)dt;
-    I += cos(omega + theta[i]); //* N_coefficient;
-    Q += sin(omega + theta[i]); //* N_coefficient;
+    f_s = f_D * cos(theta[i]);
+    f = 2.0 * M_PI * f_s * (double)dt;
+
+    I += cos( f + theta[i]) * N_coefficient;
+    Q += sin( f + theta[i]) * N_coefficient;
   }
 
-  printf("%lf\t %lf\n", I, Q);
+  printf("I相%lf\t Q相%lf\n", I, Q);
 
   return 0;
 }
