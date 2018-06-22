@@ -74,8 +74,8 @@ int main(void){
   InitialPhase(theta0);
 
 
-  for (int k = 0; k < 200; k++) {
-     t = k / 10; //時間は0.1秒刻みの20秒まで
+  for (int k = 0; k < 100; k++) {
+     t = k * 10e6; //時間は1μs秒刻みの10秒まで
 
        for (int i = 0; i < WLT; i++) {
         f = 2.0 * M_PI * f_D * cos(2.0*M_PI/(double)WLT*(double)i) * (double)dt * (double)t ;
