@@ -3,6 +3,7 @@
 #include <math.h>
 #include "complex.h"
 #include "MT.h"
+#include "p.h"
 #include <time.h>
 
 #define WLT 64  //素波の数64–128の間くらい
@@ -10,7 +11,7 @@
 #define V (4.8e3 / 3600)  //一般人の歩行速度
 #define Dt 1e-5 // dtの刻み幅(10μs)
 #define times 10e4 //計測時間
-
+#define VEC_SIZ 64 // hadamard size
 /**
 *
 * setup theta value.
@@ -33,6 +34,11 @@ int main(void){
   double theta0[WLT], f, dt;
   double I[(int)times] = {}, Q[(int)times] = {};
   double N_coefficient = sqrt(1.0 / (double)WLT);  //%%%%%%%%N_coefficient=正規化係数 は自分で見つける
+
+  int vec[VEC_SIZ][VEC_SIZ];
+  int vsiz = VEC_SIZ;
+
+  hadamard(vsiz, vec);
 
 //printf("%f\n",N_coefficient);
 
