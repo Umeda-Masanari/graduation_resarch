@@ -1,8 +1,6 @@
 #include<stdio.h>
 #include "p.h"
 
-#define matrix 8 //行列の数
-
 unsigned msb(unsigned n){
   n|=n>>1; n|=n>>2; n|=n>>4;
   n|=n>>8; n|=n>>16;
@@ -18,7 +16,7 @@ int hadamard_core(int y,int x){
   return m * hadamard_core(y&n,x&n);
 }
 // int vec[y][x];
-// hardmard(8, vec); -> vec[8][8]
+// hadmard(8, vec); -> vec[8][8]
 /*
                   y
                   |

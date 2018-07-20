@@ -36,7 +36,7 @@ int main(void){
 
 //printf("%f\n",N_coefficient);
 
-  double lambda = 3.0e8 / Freq; //真空中の搬送波の波長/周波数　
+  double lambda = 3.0e8 / Freq; //真空中の搬送波の波長/周波数
   double f_D= V / lambda; //最大ドップラー周波数
 
   InitialPhase(theta0);
